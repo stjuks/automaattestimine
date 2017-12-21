@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class ThreeDayForecastTest {
 
@@ -41,7 +39,7 @@ public class ThreeDayForecastTest {
     @Test
     public void testIfCoordinatesHave4DecimalPlaces() {
         String actualCoordinates = threeDayForecast.getLocationCoordinates();
-        String expectedFormat = "([0-9]*\\.[0-9]{4})(, )([0-9]*\\.[0-9]{4})";
+        String expectedFormat = "(-?[0-9]*\\.[0-9]{4})(, )(-?[0-9]*\\.[0-9]{4})";
         assertTrue(actualCoordinates.matches(expectedFormat));
     }
 

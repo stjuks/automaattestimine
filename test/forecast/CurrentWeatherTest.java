@@ -23,13 +23,13 @@ public class CurrentWeatherTest {
     @Test
     public void testIfTemperatureHasOneDecimalPlace() {
         String temperature = currentWeather.getCurrentTemperatureInCelsius();
-        assertTrue(temperature.matches("^-?[0-9]*\\.[0-9]$"));
+        assertTrue(temperature.matches("-?[0-9]*\\.[0-9]C"));
     }
 
     @Test
     public void testIfCoordinatesHave4DecimalPlaces() {
         String actualCoordinates = currentWeather.getLocationCoordinates();
-        String expectedFormat = "([0-9]*\\.[0-9]{4})(, )([0-9]*\\.[0-9]{4})";
+        String expectedFormat = "(^-?[0-9]*\\.[0-9]{4})(, )(-?[0-9]*\\.[0-9]{4})";
         assertTrue(actualCoordinates.matches(expectedFormat));
     }
 
