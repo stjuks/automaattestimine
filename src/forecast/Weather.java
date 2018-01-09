@@ -41,7 +41,7 @@ public class Weather {
         return "No such city in database!";
     }
 
-    List<String> readFromFile(String path) {
+    static List<String> readFromFile(String path) {
         String location;
         List<String> locations = new ArrayList<>();
         try {

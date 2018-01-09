@@ -1,0 +1,10 @@
+Weather for New York
+Coordinates: 40.7300, -73.9900
+
+3 day forecast: 
+1st day max/min temperature - 1.5/-9.7C
+2nd day max/min temperature - -0.4/-5.8C
+3rd day max/min temperature - 6.8/3.5C
+
+Current weather: 
+-1.8C

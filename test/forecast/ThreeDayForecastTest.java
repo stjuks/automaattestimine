@@ -12,7 +12,8 @@ public class ThreeDayForecastTest {
 
     @BeforeEach
     public void setupBeforeEachTest() {
-        threeDayForecast = ThreeDayForecast.weatherByCityName("Tallinn");
+        String json = Weather.readFromFile("test/tallinnhourlyforecast.txt").get(0);
+        threeDayForecast = ThreeDayForecast.weatherByJsonInput(json);
     }
 
     @Test

@@ -1,0 +1,8 @@
+Weather for New York
+Coordinates: No such city in database!
+
+3 day forecast: 
+No such city in database!
+
+Current weather: 
+No such city in database!

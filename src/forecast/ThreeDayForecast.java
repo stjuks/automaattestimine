@@ -1,6 +1,7 @@
 package forecast;
 
 import net.aksingh.owmjapis.HourlyForecast;
+import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -22,6 +23,17 @@ public class ThreeDayForecast extends Weather {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         return new ThreeDayForecast(input);
+    }
+
+    public static ThreeDayForecast weatherByJsonInput(String jsonInput) {
+        JSONObject jsonObject = new JSONObject(jsonInput);
+        return new ThreeDayForecast(jsonObject);
+    }
+
+    private ThreeDayForecast(JSONObject jsonObject) {
+        String json = jsonObject.toString();
+        this.hourlyForecast = openWeatherMap.hourlyForecastFromRawResponse(json);
+        this.location = hourlyForecast.getCityInstance().getCityName();
     }
 
     private ThreeDayForecast(String cityName) {

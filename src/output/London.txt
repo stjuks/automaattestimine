@@ -2,9 +2,9 @@ Weather for London
 Coordinates: 51.5100, -0.1300
 
 3 day forecast: 
-1st day max/min temperature - 12.4/7.4C
-2nd day max/min temperature - 9.9/7.1C
-3rd day max/min temperature - 10.0/8.4C
+1st day max/min temperature - 6.2/1.3C
+2nd day max/min temperature - 8.1/5.2C
+3rd day max/min temperature - 7.8/4.9C
 
 Current weather: 
-10.6C
+3.9C

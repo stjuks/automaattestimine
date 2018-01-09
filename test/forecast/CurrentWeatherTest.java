@@ -12,7 +12,8 @@ public class CurrentWeatherTest {
 
     @BeforeEach
     public void setupBeforeEachTest() {
-        currentWeather = CurrentWeather.weatherByCityName("Tallinn");
+        String json = Weather.readFromFile("test/tallinncurrentweather.txt").get(0);
+        currentWeather = CurrentWeather.weatherByJsonInput(json);
     }
 
     @Test

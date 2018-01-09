@@ -1,13 +1,12 @@
 package forecast;
 
+import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 public class WeatherTest {
 
@@ -21,20 +20,12 @@ public class WeatherTest {
     @Test
     public void testIfOutputFilesAreCreated() {
         Weather weather = new Weather();
-        List<String> locations = weather.readFromFile("src/input.txt");
+        List<String> locations = Weather.readFromFile("src/input.txt");
         weather.writeWeather();
         for (String location : locations) {
             File file = new File("src/output/" + location + ".txt");
             assertTrue(file.exists());
         }
     }
-
-    /*
-    @Test
-    public void testIfLocationsAreReadFromInputFile() {
-        Weather mockedWeather = mock(Weather.class);
-        mockedWeather.writeWeather();
-        verify(mockedWeather).readFromFile("src/input.txt");
-    }*/
 
 }

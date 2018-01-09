@@ -1,5 +1,7 @@
 package forecast;
 
+import org.json.JSONObject;
+
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -19,6 +21,27 @@ public class CurrentWeather extends Weather {
         return new CurrentWeather(input);
     }
 
+    public static CurrentWeather weatherByJsonInput(String jsonInput) {
+        JSONObject jsonObject = new JSONObject(jsonInput);
+        return new CurrentWeather(jsonObject);
+    }
+
+    private CurrentWeather(JSONObject jsonObject) {
+        String json = jsonObject.toString();
+        this.currentWeather = openWeatherMap.currentWeatherFromRawResponse(json);
+        this.location = currentWeather.getCityName();
+    }
+
+    private CurrentWeather(String cityName) {
+        try {
+            this.currentWeather = openWeatherMap.currentWeatherByCityName(cityName);
+            this.location = currentWeather.getCityName();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*
     private CurrentWeather(String cityName) {
         try {
             this.currentWeather = openWeatherMap.currentWeatherByCityName(cityName);
@@ -26,7 +49,7 @@ public class CurrentWeather extends Weather {
         } catch (Exception e) {
             System.out.println(noCityException());
         }
-    }
+    }*/
 
     public String getCurrentTemperatureInCelsius() {
         try {
